@@ -3,7 +3,7 @@
 Herramienta web para calcular dosis pediátricas de medicamentos comunes.
 
 ## 🚀 Acceso rápido
-[Abrir calculadora](https://TU-USUARIO.github.io/calculadora-dosis-pediatricas/)
+[Abrir calculadora](https://palmeiroresearch.github.io/Calculadora_Dosis_Pediatrica/)
 
 ## 📋 Características
 - Cálculo automático basado en peso
