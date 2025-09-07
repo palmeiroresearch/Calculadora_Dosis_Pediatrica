@@ -1,4 +1,18 @@
 {
+  "dipirona": {
+    "name": "Dipirona (Metamizol)",
+    "dose": "20-30 mg/kg/dosis",
+    "minDose": 20,
+    "maxDose": 30,
+    "maxDaily": "65 mg/kg/día",
+    "interval": "-----",
+    "presentations": [
+      "Tabletas de 300mg y 500mg",
+      "Ámpulas de 600mg/2ml",
+      "Supositorios 300mg"
+    ],
+    "notes": "Vigilar reacciones adversas"
+  },
   "paracetamol": {
     "name": "Paracetamol (Acetaminofén)",
     "dose": "10-15 mg/kg/dosis",
@@ -9,9 +23,8 @@
     "presentations": [
       "Tabletas de 500mg",
       "Suspensión 120mg/5ml (24mg/ml)",
-      "Suspensión 160mg/5ml (32mg/ml)", 
-      "Supositorios de 100mg y 150mg",
-      "Gotas 100mg/ml"
+      "Suspensión 160mg/5ml (32mg/ml)",
+      "Supositorios de 100mg y 150mg"
     ],
     "notes": "Antipirético y analgésico de primera línea"
   },
@@ -23,31 +36,250 @@
     "maxDaily": "30 mg/kg/día",
     "interval": "Cada 6-8 horas",
     "presentations": [
-      "Tabletas de 400mg y 600mg",
+      "Tabletas de 200mg, 400mg y 800mg",
       "Suspensión 100mg/5ml (20mg/ml)",
-      "Suspensión 200mg/5ml (40mg/ml)",
-      "Gotas 50mg/1.25ml"
+      "Suspensión 200mg/5ml (40mg/ml)"
     ],
     "notes": "AINE, contraindicado en menores de 6 meses"
   },
+  "diclofenaco": {
+    "name": "Diclofenaco",
+    "dose": "3 mg/kg/dosis",
+    "minDose": 3,
+    "maxDose": 3,
+    "maxDaily": "-----",
+    "interval": "c/12 h no más 3v/d",
+    "presentations": [
+      "Tabletas 75 mg",
+      "Ámpulas 75 mg/3 ml"
+    ],
+    "notes": "-----"
+  },
   "amoxicilina": {
     "name": "Amoxicilina",
-    "dose": "25-50 mg/kg/día dividido cada 8-12h",
-    "minDose": 8.3,
-    "maxDose": 16.7,
-    "maxDaily": "50 mg/kg/día",
-    "interval": "Cada 8-12 horas",
+    "dose": "80-100 mg/kg/día",
+    "minDose": 80,
+    "maxDose": 100,
+    "maxDaily": "100 mg/kg/día",
+    "interval": "Cada 8 horas",
     "presentations": [
       "Cápsulas de 500mg",
-      "Suspensión 250mg/5ml (50mg/ml)",
-      "Suspensión 125mg/5ml (25mg/ml)",
-      "Gotas 100mg/ml"
+      "Suspensión 250mg/5ml (50mg/ml)"
     ],
     "notes": "Antibiótico betalactámico de primera línea"
   },
+  "amoxicilina_clavulanico": {
+    "name": "Amoxicilina + Ácido Clavulánico",
+    "dose": "50-80 mg/kg/día",
+    "minDose": 50,
+    "maxDose": 80,
+    "maxDaily": "80 mg/kg/día",
+    "interval": "Cada 8 horas",
+    "presentations": [
+      "Bulbo 750 mg/5 ml",
+      "500 mg Amoxi + 250 mg Ac clavul"
+    ],
+    "notes": "Se calcula en base a Amoxicilina"
+  },
+  "penicilina_cristalina": {
+    "name": "Penicilina Cristalina",
+    "dose": "250,000 - 500,000 Ud/kg/día",
+    "minDose": "250000",
+    "maxDose": "500000",
+    "maxDaily": "500,000 Ud/kg/día",
+    "interval": "c/6-12h",
+    "presentations": [
+      "Bulbo 1 millón/4 ml"
+    ],
+    "notes": "En 3-4d pasar a P. Rapilenta"
+  },
+  "ceftriaxona": {
+    "name": "Ceftriaxona",
+    "dose": "80-100 mg/kg/día",
+    "minDose": 80,
+    "maxDose": 100,
+    "maxDaily": "100 mg/kg/día",
+    "interval": "Una vez al día",
+    "presentations": [
+      "Bulbo 1 gramo"
+    ],
+    "notes": "Neumonía grave, ITU, OMA y EDA x Shigella"
+  },
+  "cefepime": {
+    "name": "Cefepime",
+    "dose": "100-150 mg/kg/día",
+    "minDose": 100,
+    "maxDose": 150,
+    "maxDaily": "150 mg/kg/día",
+    "interval": "Cada 8 horas",
+    "presentations": [
+      "Bulbo 1 gramo"
+    ],
+    "notes": "-----"
+  },
+  "ciprofloxacina": {
+    "name": "Ciprofloxacina",
+    "dose": "10-30 mg/kg/día",
+    "minDose": 10,
+    "maxDose": 30,
+    "maxDaily": "30 mg/kg/día",
+    "interval": "Cada 8 horas",
+    "presentations": [
+      "Tabletas 250 mg",
+      "Bulbo 200 mg/100 ml"
+    ],
+    "notes": "EDA x Shigela 10 a 15mg/kg/día, ITU e IRA 20 a 30mg/kg/día"
+  },
+  "levofloxacina": {
+    "name": "Levofloxacina",
+    "dose": "20 mg/kg/día",
+    "minDose": 20,
+    "maxDose": 20,
+    "maxDaily": "20 mg/kg/día",
+    "interval": "Cada 12 horas",
+    "presentations": [
+      "Tabletas 500 mg",
+      "Bulbo 500 mg/100 ml"
+    ],
+    "notes": "ITU, IRA, Piel y partes blandas"
+  },
+  "metronidazol": {
+    "name": "Metronidazol",
+    "dose": "30 mg/kg/día",
+    "minDose": 30,
+    "maxDose": 30,
+    "maxDaily": "30 mg/kg/día",
+    "interval": "Cada 8 horas",
+    "presentations": [
+      "Tabletas 250 mg",
+      "Frasco 500 mg/100 ml"
+    ],
+    "notes": "Absceso y retrof, Antiparasitario"
+  },
+  "sulfaprim": {
+    "name": "Sulfaprim",
+    "dose": "40-60 mg/kg/día",
+    "minDose": 40,
+    "maxDose": 60,
+    "maxDaily": "60 mg/kg/día",
+    "interval": "Cada 8 horas",
+    "presentations": [
+      "Tabletas 480 mg",
+      "Ámpulas 400mg(SMX) /80 mg/5ml"
+    ],
+    "notes": "ITU, Piel"
+  },
+  "cloranfenicol": {
+    "name": "Cloranfenicol",
+    "dose": "50 mg/kg/día",
+    "minDose": 50,
+    "maxDose": 50,
+    "maxDaily": "50 mg/kg/día",
+    "interval": "Cada 6 horas",
+    "presentations": [
+      "Tabletas 250 mg",
+      "Suspensión 125/5 ml",
+      "Bulbo de 1 gramo"
+    ],
+    "notes": "Fiebre tifoidea, Infecciones del SNC x Hib, strep pneumo, N. meningitidis"
+  },
+  "vancomicina": {
+    "name": "Vancomicina",
+    "dose": "60 mg/kg/día",
+    "minDose": 60,
+    "maxDose": 60,
+    "maxDaily": "60 mg/kg/día",
+    "interval": "Cada 6 horas",
+    "presentations": [
+      "Bulbo 500 mg"
+    ],
+    "notes": "Infecciones graves por GRAM+, Absceso hepático, actinomicosis"
+  },
+  "clindamicina": {
+    "name": "Clindamicina",
+    "dose": "20-40 mg/kg/día",
+    "minDose": 20,
+    "maxDose": 40,
+    "maxDaily": "40 mg/kg/día",
+    "interval": "c/8-12h",
+    "presentations": [
+      "Ámpulas 600 mg/4ml",
+      "Tabletas 300 mg"
+    ],
+    "notes": "absc pulm, septicemia, ITU"
+  },
+  "fosfomicina": {
+    "name": "Fosfomicina",
+    "dose": "150 mg/kg/día",
+    "minDose": 150,
+    "maxDose": 150,
+    "maxDaily": "150 mg/kg/día",
+    "interval": "Cada 6 horas",
+    "presentations": [
+      "Bulbo 1 gramo",
+      "Tabletas 500 mg"
+    ],
+    "notes": "Inf dermat, NAC Compl"
+  },
+  "oseltamivir": {
+    "name": "Oseltamivir",
+    "dose": "3 mg/kg/día x 5d",
+    "minDose": 3,
+    "maxDose": 3,
+    "maxDaily": "3 mg/kg/día",
+    "interval": "c/6h",
+    "presentations": [
+      "Cápsulas 75 mg",
+      "Suspensión 20 mg/5 ml"
+    ],
+    "notes": "Para influenza solo antes 3d del cuadro clínico"
+  },
+  "aciclovir": {
+    "name": "Aciclovir",
+    "dose": "5-20 mg/kg/día",
+    "minDose": 5,
+    "maxDose": 20,
+    "maxDaily": "20 mg/kg/día",
+    "interval": "c/6h x 5-7d",
+    "presentations": [
+      "Bulbo 250 mg",
+      "Tabletas 200 mg",
+      "Crema 5%"
+    ],
+    "notes": "Virus H. simple (piel y mucosas)"
+  },
+  "salbutamol": {
+    "name": "Salbutamol",
+    "dose": "0.15 mg/kg/dosis",
+    "minDose": 0.15,
+    "maxDose": 0.15,
+    "maxDaily": "Según necesidad",
+    "interval": "c/6h",
+    "presentations": [
+      "Aerosol 100 μg/dosis",
+      "Ámpulas 0.5mg/ml",
+      "Frasco 2 mg/ml",
+      "Suspensión 2 mg/5 ml",
+      "Tabletas 2 mg"
+    ],
+    "notes": "Para aerosol se multiplica 0.6 x Kg = gotas c/20 min x 1h"
+  },
+   "hidrocortisona": {
+    "name": "Hidrocortisona",
+    "dose": "5-10 mg/kg/dosis o día",
+    "minDose": 5,
+    "maxDose": 10,
+    "maxDaily": "-----",
+    "interval": "----",
+    "presentations": [
+      "Bulbo 100 mg/1 ml",
+      "Bulbo 500 mg/5 ml"
+    ],
+    "notes": "-----"
+  }, 
   "azitromicina": {
     "name": "Azitromicina",
-    "dose": "10 mg/kg/día por 3 días",
+    "dose": "10 mg/kg/día",
     "minDose": 10,
     "maxDose": 10,
     "maxDaily": "10 mg/kg/día",
@@ -57,7 +289,36 @@
       "Suspensión 200mg/5ml (40mg/ml)",
       "Cápsulas de 250mg"
     ],
-    "notes": "Macrólido, útil en alérgicos a penicilina"
+    "notes": "20mg/kg/día en el tratamiento del cólera"
+  },
+  "eritromicina": {
+    "name": "Eritromicina",
+    "dose": "25-50 mg/kg/día",
+    "minDose": 25,
+    "maxDose": 50,
+    "maxDaily": "50 mg/kg/día",
+    "interval": "-----",
+    "presentations": [
+      "Bulbo 1 gramo",
+      "Tabletas 250 mg",
+      "Suspensión 125 mg/5 ml",
+      "Suspensión 250 mg/5 ml"
+    ],
+    "notes": "Alergia a Penicilina, Profilaxis de F.reum"
+  },
+  "dexametasona": {
+    "name": "Dexametasona",
+    "dose": "0.15-0.6 mg/kg/dosis o día",
+    "minDose": 0.15,
+    "maxDose": 0.6,
+    "maxDaily": "-----",
+    "interval": "-----",
+    "presentations": [
+      "Bulbo 4mg /8 mg",
+      "Tabletas 4 mg",
+      "Tabletas 0.75 mg"
+    ],
+    "notes": "laringitis"
   },
   "prednisona": {
     "name": "Prednisona",
@@ -70,20 +331,32 @@
       "Tabletas de 5mg, 10mg, 20mg",
       "Suspensión 5mg/5ml (1mg/ml)"
     ],
-    "notes": "Corticoide sistémico, uso por tiempo limitado"
+    "notes": "Uso limitado tiempo, supresión adrenal, osteoporosis"
   },
-  "salbutamol": {
-    "name": "Salbutamol (inhalado)",
-    "dose": "100-200 mcg por dosis",
-    "minDose": 100,
-    "maxDose": 200,
-    "maxDaily": "Según necesidad",
-    "interval": "Cada 4-6 horas PRN",
+  "epinefrina": {
+    "name": "Epinefrina",
+    "dose": "0.01 mg/kg/dosis",
+    "minDose": 0.01,
+    "maxDose": 0.01,
+    "maxDaily": "sin pasar de 0.3 ml",
+    "interval": "c/30 min 3 dosis",
     "presentations": [
-      "MDI 100 mcg/puff",
-      "Solución para nebulizar 5mg/ml",
-      "Cápsulas para inhalación 200 mcg"
+      "Ámpulas 1mg/1ml"
     ],
-    "notes": "Broncodilatador β2 agonista de acción corta"
+    "notes": "CAAB, Edema angioneurótico y de glotis, urticaria"
+  },
+  "difenhidramina": {
+    "name": "Difenhidramina",
+    "dose": "5 mg/kg/día",
+    "minDose": 5,
+    "maxDose": 5,
+    "maxDaily": "5 mg/kg/día",
+    "interval": "c/8h",
+    "presentations": [
+      "Tabletas 25 mg",
+      "Suspensión 12.5 mg/5ml",
+      "Ámpulas 20 mg/2ml"
+    ],
+    "notes": "-----"
   }
 }
