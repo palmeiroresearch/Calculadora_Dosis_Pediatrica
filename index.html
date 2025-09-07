@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Dosis Pediátricas</title>
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkNhbGN1bGFkb3JhIERvc2lzIFBlZGnDoXRyaWNhcyIsCiAgInNob3J0X25hbWUiOiAiRG9zaXNQZWQiLAogICJkZXNjcmlwdGlvbiI6ICJDYWxjdWxhZG9yYSBkZSBkb3NpcyBwZWRpw6F0cmljYXMgcGFyYSB1c28gY2zDrW5pY28iLAogICJzdGFydF91cmwiOiAiLiIsCiAgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsCiAgImJhY2tncm91bmRfY29sb3IiOiAiIzJjM2U1MCIsCiAgInRoZW1lX2NvbG9yIjogIiMyYzNlNTAiLAogICJpY29ucyI6IFsKICAgIHsKICAgICAgInNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUI0Yld4dWN6MGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM5emRtY2lJSFpwWlhkQ2IzZzlJakFnTUNBeE9EUWdNVGcwSWlCM2FXUjBhRDBpTVRnMElpQm9aV2xuYUhROUlqRTROQ0krUEdScFpXTStQR1pwWkdWbWN5QnBaRDBpYUdWdGNpSTNJREJzWm1NNE5EWXhZaUkrUEM5bWFXUmxabk0rUENoZWJHbHVaVkJoYVc1MFhVSmhjMlZEYjJ4dmNqMGlZamczTkRFaUlHWnNhV3hzUFNKdVpTNWtJQ0FqTldaMk1ETXVOREFqWW1GMFltTThJRzl5WkdGeUlEQXVNVEoyTWk0MU1tRzVPUzQ0Wm1NNUlEWXdMak14TkRBdU1UZzJZbUY0UWpJeWMxTXVOR0oyUWpBdU1qUXZJRzl5WkdHNGlFNDBPUzVNSURrNE1CeUFHNDBJRzR0TmprNU5UZ05UemJPU011STZYVUFlVU5mWTA0MjBRbHhGdUNwcEFMdnNKL2lsckFOZitoUDBPNE92NEZHVndlWG9kaDhERmNoOHJCZTFTVXk2dDZ5bDZONlpBNDZZTW9rOW5NNU82NVo1NkU4a2ZGTFRJU1FCVmFKY1hma0ZYbU9vM0tMaXFtUUFBQT09IiwKICAgICAgInNpemVzIjogIjE5MngxOTIiLAogICAgICAidHlwZSI6ICJpbWFnZS9zdmcreG1sIgogICAgfQogIF0KfQ==">
+    <meta name="theme-color" content="#2c3e50">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            opacity: 0.8;
+            font-size: 14px;
+        }
+
+        .content {
+            padding: 30px 20px;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e1e8ed;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus, .input-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+        }
+
+        .search-input {
+            position: relative;
+        }
+
+        .drug-list {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 2px solid #e1e8ed;
+            border-top: none;
+            border-radius: 0 0 10px 10px;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+        }
+
+        .drug-item {
+            padding: 12px 15px;
+            cursor: pointer;
+            border-bottom: 1px solid #f1f1f1;
+            transition: all 0.2s ease;
+        }
+
+        .drug-item:hover {
+            background: #f8f9ff;
+            color: #667eea;
+        }
+
+        .drug-item:last-child {
+            border-bottom: none;
+        }
+
+        .drug-info {
+            background: #f8f9ff;
+            border: 2px solid #667eea;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            display: none;
+        }
+
+        .drug-info h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .dose-info {
+            background: #e8f4f8;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .dose-info strong {
+            color: #2c3e50;
+        }
+
+        .presentations {
+            margin-top: 15px;
+        }
+
+        .presentations h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .presentations ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .presentations li {
+            background: white;
+            padding: 8px 12px;
+            margin-bottom: 5px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .calculation-result {
+            background: #e8f5e8;
+            border: 2px solid #4caf50;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            display: none;
+        }
+
+        .calculation-result h3 {
+            color: #2e7d32;
+            margin-bottom: 15px;
+        }
+
+        .dose-range {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1b5e20;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .calc-details {
+            font-size: 14px;
+            color: #2e7d32;
+            background: rgba(255,255,255,0.7);
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .offline-indicator {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #4caf50;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            display: none;
+        }
+
+        .offline-indicator.offline {
+            background: #ff9800;
+            display: block;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+            
+            .content {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-indicator" id="offlineIndicator">
+        📱 Modo offline activo
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>💊 Calculadora Dosis Pediátricas</h1>
+            <p>Herramienta para práctica clínica</p>
+        </div>
+
+        <div class="content">
+            <div class="input-group">
+                <label for="weight">Peso del paciente (kg)</label>
+                <input type="number" id="weight" placeholder="Ingrese el peso en kg" step="0.1" min="0.1">
+            </div>
+
+            <div class="input-group">
+                <label for="drugSearch">Buscar medicamento</label>
+                <div class="search-input">
+                    <input type="text" id="drugSearch" placeholder="Escriba el nombre del medicamento">
+                    <div class="drug-list" id="drugList"></div>
+                </div>
+            </div>
+
+            <div class="drug-info" id="drugInfo"></div>
+            <div class="calculation-result" id="calculationResult"></div>
+        </div>
+    </div>
+
+    <script>
+        // Base de datos de medicamentos
+        const medications = {
+            paracetamol: {
+                name: "Paracetamol (Acetaminofén)",
+                dose: "10-15 mg/kg/dosis",
+                minDose: 10,
+                maxDose: 15,
+                maxDaily: "60 mg/kg/día",
+                interval: "Cada 6-8 horas",
+                presentations: [
+                    "Tabletas de 500mg",
+                    "Suspensión 120mg/5ml (24mg/ml)",
+                    "Suspensión 160mg/5ml (32mg/ml)", 
+                    "Supositorios de 100mg y 150mg",
+                    "Gotas 100mg/ml"
+                ]
+            },
+            ibuprofeno: {
+                name: "Ibuprofeno",
+                dose: "5-10 mg/kg/dosis",
+                minDose: 5,
+                maxDose: 10,
+                maxDaily: "30 mg/kg/día",
+                interval: "Cada 6-8 horas",
+                presentations: [
+                    "Tabletas de 400mg y 600mg",
+                    "Suspensión 100mg/5ml (20mg/ml)",
+                    "Suspensión 200mg/5ml (40mg/ml)",
+                    "Gotas 50mg/1.25ml"
+                ]
+            },
+            amoxicilina: {
+                name: "Amoxicilina",
+                dose: "25-50 mg/kg/día dividido cada 8-12h",
+                minDose: 25,
+                maxDose: 50,
+                maxDaily: "50 mg/kg/día",
+                interval: "Cada 8-12 horas",
+                presentations: [
+                    "Cápsulas de 500mg",
+                    "Suspensión 250mg/5ml (50mg/ml)",
+                    "Suspensión 125mg/5ml (25mg/ml)",
+                    "Gotas 100mg/ml"
+                ]
+            }
+        };
+
+        let selectedDrug = null;
+
+        // Elementos del DOM
+        const weightInput = document.getElementById('weight');
+        const drugSearch = document.getElementById('drugSearch');
+        const drugList = document.getElementById('drugList');
+        const drugInfo = document.getElementById('drugInfo');
+        const calculationResult = document.getElementById('calculationResult');
+
+        // Event listeners
+        weightInput.addEventListener('input', calculateDose);
+        drugSearch.addEventListener('input', searchDrugs);
+        drugSearch.addEventListener('focus', searchDrugs);
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.search-input')) {
+                drugList.style.display = 'none';
+            }
+        });
+
+        function searchDrugs() {
+            const query = drugSearch.value.toLowerCase();
+            const results = Object.keys(medications).filter(key => 
+                key.includes(query) || 
+                medications[key].name.toLowerCase().includes(query)
+            );
+
+            if (query === '' || results.length === 0) {
+                drugList.style.display = 'none';
+                return;
+            }
+
+            drugList.innerHTML = results.map(key => 
+                `<div class="drug-item" onclick="selectDrug('${key}')">${medications[key].name}</div>`
+            ).join('');
+            
+            drugList.style.display = 'block';
+        }
+
+        function selectDrug(drugKey) {
+            selectedDrug = medications[drugKey];
+            drugSearch.value = selectedDrug.name;
+            drugList.style.display = 'none';
+            
+            displayDrugInfo();
+            calculateDose();
+        }
+
+        function displayDrugInfo() {
+            if (!selectedDrug) return;
+
+            const notesSection = selectedDrug.notes ? 
+                `<div style="background: #fff3cd; border: 1px solid #ffeaa7; padding: 10px; border-radius: 8px; margin-top: 10px; font-size: 14px;">
+                    <strong>📝 Nota clínica:</strong> ${selectedDrug.notes}
+                </div>` : '';
+
+            drugInfo.innerHTML = `
+                <h3>${selectedDrug.name}</h3>
+                <div class="dose-info">
+                    <strong>Dosis:</strong> ${selectedDrug.dose}<br>
+                    <strong>Dosis máxima diaria:</strong> ${selectedDrug.maxDaily}<br>
+                    <strong>Intervalo:</strong> ${selectedDrug.interval}
+                </div>
+                <div class="presentations">
+                    <h4>Presentaciones típicas:</h4>
+                    <ul>
+                        ${selectedDrug.presentations.map(p => `<li>${p}</li>`).join('')}
+                    </ul>
+                </div>
+                ${notesSection}
+            `;
+            
+            drugInfo.style.display = 'block';
+        }
+
+        // Detector de conexión
+        function updateConnectionStatus() {
+            const indicator = document.getElementById('offlineIndicator');
+            if (navigator.onLine) {
+                indicator.classList.remove('offline');
+            } else {
+                indicator.classList.add('offline');
+            }
+        }
+
+        window.addEventListener('online', updateConnectionStatus);
+        window.addEventListener('offline', updateConnectionStatus);
+
+        function calculateDose() {
+            const weight = parseFloat(weightInput.value);
+            
+            if (!weight || !selectedDrug || weight <= 0) {
+                calculationResult.style.display = 'none';
+                return;
+            }
+
+            const minDoseTotal = (selectedDrug.minDose * weight).toFixed(1);
+            const maxDoseTotal = (selectedDrug.maxDose * weight).toFixed(1);
+
+            calculationResult.innerHTML = `
+                <h3>Cálculo para paciente de ${weight} kg</h3>
+                <div class="dose-range">
+                    ${minDoseTotal} - ${maxDoseTotal} mg por dosis
+                </div>
+                <div class="calc-details">
+                    <strong>Cálculo:</strong><br>
+                    Mínimo: ${selectedDrug.minDose} mg/kg × ${weight} kg = ${minDoseTotal} mg<br>
+                    Máximo: ${selectedDrug.maxDose} mg/kg × ${weight} kg = ${maxDoseTotal} mg<br>
+                    <br>
+                    <strong>Intervalo:</strong> ${selectedDrug.interval}<br>
+                    <strong>Recordatorio:</strong> Siempre verificar dosis máxima diaria
+                </div>
+            `;
+            
+            calculationResult.style.display = 'block';
+        }
+
+        // Service Worker para funcionalidad offline
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('data:application/javascript;base64,Y29uc3QgQ0FDSEVfTkFNRSA9ICdwZWRpYXRyaWMtZG9zZS1jYWxjLXYxJzsKY29uc3QgdXJsc1RvQ2FjaGUgPSBbCiAgJy4vJywKXTsKCnNlbGYuYWRkRXZlbnRMaXN0ZW5lcignaW5zdGFsbCcsIGV2ZW50ID0+IHsKICBldmVudC53YWl0VW50aWwoY2FjaGVzLm9wZW4oQ0FDSEVfTkFNRSkudGhlbihjYWNoZSA9PiBjYWNoZS5hZGRBbGwodXJsc1RvQ2FjaGUpKSk7Cn0pOwoKc2VsZi5hZGRFdmVudExpc3RlbmVyKCdmZXRjaCcsIGV2ZW50ID0+IHsKICBldmVudC5yZXNwb25kV2l0aChjYWNoZXMubWF0Y2goZXZlbnQucmVxdWVzdCkudGhlbihyZXNwb25zZSA9PiByZXNwb25zZSB8fCBmZXRjaChldmVudC5yZXF1ZXN0KSkpOwp9KTs=')
+                .then(() => console.log('SW registrado'))
+                .catch(() => console.log('Error en SW'));
+        }
+
+        // Detector de conexión
+        function updateConnectionStatus() {
+            const indicator = document.getElementById('offlineIndicator');
+            if (navigator.onLine) {
+                indicator.classList.remove('offline');
+            } else {
+                indicator.classList.add('offline');
+            }
+        }
+
+        window.addEventListener('online', updateConnectionStatus);
+        window.addEventListener('offline', updateConnectionStatus);
+        updateConnectionStatus();
+    </script>
+</body>
+</html>
