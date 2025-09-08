@@ -1,6 +1,8 @@
-const CACHE_VERSION = 'v2.0.1';
+// Cambia esta versión en cada despliegue
+const CACHE_VERSION = 'v2.0.2';
 const CACHE_NAME = `dosis-pediatricas-${CACHE_VERSION}`;
 
+// Archivos estáticos que cambian poco
 const STATIC_ASSETS = [
   './',
   './index.html',
@@ -9,12 +11,12 @@ const STATIC_ASSETS = [
   './icon-512.png'
 ];
 
-// Archivos que deben actualizarse siempre desde la red si es posible
+// Archivos dinámicos que deben actualizarse siempre
 const DYNAMIC_ASSETS = [
-  './medications.json'
+  `./medications.json?v=${CACHE_VERSION}` // cache busting
 ];
 
-// Instalar y cachear assets estáticos
+// Instalar y cachear
 self.addEventListener('install', event => {
   self.skipWaiting();
   event.waitUntil(
@@ -23,12 +25,19 @@ self.addEventListener('install', event => {
   );
 });
 
-// Activar y limpiar cachés viejas
+// Activar, limpiar cachés viejas y recargar clientes
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(keys =>
       Promise.all(keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k)))
     ).then(() => self.clients.claim())
+     .then(() => {
+       // Recargar todas las ventanas controladas
+       return self.clients.matchAll({ type: 'window', includeUncontrolled: true })
+         .then(clients => {
+           clients.forEach(client => client.navigate(client.url));
+         });
+     })
   );
 });
 
@@ -36,10 +45,10 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
   const url = event.request.url;
 
-  // Network-first para HTML y JSON dinámico
-  if (event.request.mode === 'navigate' || DYNAMIC_ASSETS.some(asset => url.endsWith(asset))) {
+  // Network-first agresivo para HTML y JSON dinámico
+  if (event.request.mode === 'navigate' || url.endsWith('.json') || url.includes('medications.json')) {
     event.respondWith(
-      fetch(event.request)
+      fetch(event.request, { cache: 'no-store' })
         .then(response => {
           const clone = response.clone();
           caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
@@ -56,3 +65,4 @@ self.addEventListener('fetch', event => {
       .then(response => response || fetch(event.request))
   );
 });
+
