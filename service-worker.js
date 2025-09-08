@@ -1,4 +1,5 @@
-const CACHE_NAME = 'dosis-pediatricas-v1';
+const CACHE_VERSION = 'v2.0.0';
+const CACHE_NAME = `dosis-pediatricas-${CACHE_VERSION}`;
 const urlsToCache = [
   './',
   './index.html',
