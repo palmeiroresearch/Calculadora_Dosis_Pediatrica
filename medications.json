@@ -1,362 +1,1070 @@
 {
-  "dipirona": {
-    "name": "Dipirona (Metamizol)",
-    "dose": "20-30 mg/kg/dosis",
-    "minDose": 20,
-    "maxDose": 30,
-    "maxDaily": "65 mg/kg/día",
-    "interval": "-----",
-    "presentations": [
-      "Tabletas de 300mg y 500mg",
-      "Ámpulas de 600mg/2ml",
-      "Supositorios 300mg"
-    ],
-    "notes": "Vigilar reacciones adversas"
-  },
   "paracetamol": {
     "name": "Paracetamol (Acetaminofén)",
     "dose": "10-15 mg/kg/dosis",
     "minDose": 10,
     "maxDose": 15,
+    "unit": "mg",
     "maxDaily": "60 mg/kg/día",
+    "maxDailyValue": 60,
     "interval": "Cada 6-8 horas",
+    "intervalHours": 6,
     "presentations": [
-      "Tabletas de 500mg",
-      "Suspensión 120mg/5ml (24mg/ml)",
-      "Suspensión 160mg/5ml (32mg/ml)",
-      "Supositorios de 100mg y 150mg"
+      {
+        "type": "solid",
+        "description": "Tabletas 500mg",
+        "concentration": 500,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": null
+      },
+      {
+        "type": "liquid",
+        "description": "Suspensión 120mg/5ml",
+        "concentration": 120,
+        "concentrationUnit": "mg",
+        "volume": 5,
+        "dilutionOptions": null
+      },
+      {
+        "type": "liquid",
+        "description": "Suspensión 160mg/5ml",
+        "concentration": 160,
+        "concentrationUnit": "mg",
+        "volume": 5,
+        "dilutionOptions": null
+      },
+      {
+        "type": "solid",
+        "description": "Supositorios 100mg",
+        "concentration": 100,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": null
+      },
+      {
+        "type": "solid",
+        "description": "Supositorios 150mg",
+        "concentration": 150,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": null
+      }
     ],
-    "notes": "Antipirético y analgésico de primera línea"
+    "specialDosing": null,
+    "ageRestrictions": null,
+    "notes": "Antipirético y analgésico de primera línea. Precaución con dosis altas por hepatotoxicidad"
   },
+
   "ibuprofeno": {
     "name": "Ibuprofeno",
     "dose": "5-10 mg/kg/dosis",
     "minDose": 5,
     "maxDose": 10,
+    "unit": "mg",
     "maxDaily": "30 mg/kg/día",
+    "maxDailyValue": 30,
     "interval": "Cada 6-8 horas",
+    "intervalHours": 6,
     "presentations": [
-      "Tabletas de 200mg, 400mg y 800mg",
-      "Suspensión 100mg/5ml (20mg/ml)",
-      "Suspensión 200mg/5ml (40mg/ml)"
+      {
+        "type": "solid",
+        "description": "Tabletas 200mg",
+        "concentration": 200,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": null
+      },
+      {
+        "type": "solid",
+        "description": "Tabletas 400mg",
+        "concentration": 400,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": null
+      },
+      {
+        "type": "solid",
+        "description": "Tabletas 800mg",
+        "concentration": 800,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": null
+      },
+      {
+        "type": "liquid",
+        "description": "Suspensión 100mg/5ml",
+        "concentration": 100,
+        "concentrationUnit": "mg",
+        "volume": 5,
+        "dilutionOptions": null
+      },
+      {
+        "type": "liquid",
+        "description": "Suspensión 200mg/5ml",
+        "concentration": 200,
+        "concentrationUnit": "mg",
+        "volume": 5,
+        "dilutionOptions": null
+      }
     ],
-    "notes": "AINE, contraindicado en menores de 6 meses"
+    "specialDosing": null,
+    "ageRestrictions": {
+      "minMonths": 6,
+      "warning": "Contraindicado en menores de 6 meses"
+    },
+    "notes": "AINE de primera línea en pediatría"
   },
+
+  "dipirona": {
+    "name": "Dipirona (Metamizol)",
+    "dose": "20-30 mg/kg/dosis",
+    "minDose": 20,
+    "maxDose": 30,
+    "unit": "mg",
+    "maxDaily": "65 mg/kg/día",
+    "maxDailyValue": 65,
+    "interval": "Cada 6-8 horas",
+    "intervalHours": 6,
+    "presentations": [
+      {
+        "type": "solid",
+        "description": "Tabletas 300mg",
+        "concentration": 300,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": null
+      },
+      {
+        "type": "solid",
+        "description": "Tabletas 500mg",
+        "concentration": 500,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": null
+      },
+      {
+        "type": "iv",
+        "description": "Ámpulas 600mg/2ml",
+        "concentration": 600,
+        "concentrationUnit": "mg",
+        "volume": 2,
+        "dilutionOptions": null
+      },
+      {
+        "type": "solid",
+        "description": "Supositorios 300mg",
+        "concentration": 300,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": null
+      }
+    ],
+    "specialDosing": null,
+    "ageRestrictions": null,
+    "notes": "Vigilar reacciones adversas (agranulocitosis rara pero grave)"
+  },
+
   "diclofenaco": {
     "name": "Diclofenaco",
     "dose": "3 mg/kg/dosis",
     "minDose": 3,
     "maxDose": 3,
-    "maxDaily": "-----",
-    "interval": "c/12 h no más 3v/d",
+    "unit": "mg",
+    "maxDaily": null,
+    "maxDailyValue": null,
+    "interval": "Cada 12h (máximo 3 veces/día)",
+    "intervalHours": 12,
     "presentations": [
-      "Tabletas 75 mg",
-      "Ámpulas 75 mg/3 ml"
+      {
+        "type": "solid",
+        "description": "Tabletas 75mg",
+        "concentration": 75,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": null
+      },
+      {
+        "type": "iv",
+        "description": "Ámpulas 75mg/3ml",
+        "concentration": 75,
+        "concentrationUnit": "mg",
+        "volume": 3,
+        "dilutionOptions": null
+      }
     ],
-    "notes": "-----"
+    "specialDosing": null,
+    "ageRestrictions": null,
+    "notes": "AINE potente, uso limitado en pediatría"
   },
+
   "amoxicilina": {
     "name": "Amoxicilina",
     "dose": "80-100 mg/kg/día",
     "minDose": 80,
     "maxDose": 100,
+    "unit": "mg",
     "maxDaily": "100 mg/kg/día",
+    "maxDailyValue": 100,
     "interval": "Cada 8 horas",
+    "intervalHours": 8,
     "presentations": [
-      "Cápsulas de 500mg",
-      "Suspensión 250mg/5ml (50mg/ml)"
+      {
+        "type": "solid",
+        "description": "Cápsulas 500mg",
+        "concentration": 500,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": null
+      },
+      {
+        "type": "liquid",
+        "description": "Suspensión 250mg/5ml",
+        "concentration": 250,
+        "concentrationUnit": "mg",
+        "volume": 5,
+        "dilutionOptions": null
+      }
     ],
+    "specialDosing": null,
+    "ageRestrictions": null,
     "notes": "Antibiótico betalactámico de primera línea"
   },
+
   "amoxicilina_clavulanico": {
     "name": "Amoxicilina + Ácido Clavulánico",
     "dose": "50-80 mg/kg/día",
     "minDose": 50,
     "maxDose": 80,
+    "unit": "mg",
     "maxDaily": "80 mg/kg/día",
+    "maxDailyValue": 80,
     "interval": "Cada 8 horas",
+    "intervalHours": 8,
     "presentations": [
-      "Bulbo 750 mg/5 ml",
-      "500 mg Amoxi + 250 mg Ac clavul"
+      {
+        "type": "liquid",
+        "description": "Suspensión 250mg/5ml (Amoxicilina)",
+        "concentration": 250,
+        "concentrationUnit": "mg",
+        "volume": 5,
+        "dilutionOptions": null
+      },
+      {
+        "type": "solid",
+        "description": "Tabletas 500mg Amoxi + 125mg Clav",
+        "concentration": 500,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": null
+      }
     ],
-    "notes": "Se calcula en base a Amoxicilina"
+    "specialDosing": null,
+    "ageRestrictions": null,
+    "notes": "Dosis calculada en base a Amoxicilina. Para infecciones resistentes"
   },
+
   "penicilina_cristalina": {
     "name": "Penicilina Cristalina",
     "dose": "250,000 - 500,000 Ud/kg/día",
-    "minDose": "250000",
-    "maxDose": "500000",
+    "minDose": 250000,
+    "maxDose": 500000,
+    "unit": "U",
     "maxDaily": "500,000 Ud/kg/día",
-    "interval": "c/6-12h",
+    "maxDailyValue": 500000,
+    "interval": "Cada 6-12 horas",
+    "intervalHours": 6,
     "presentations": [
-      "Bulbo 1 millón/4 ml"
+      {
+        "type": "iv",
+        "description": "Bulbo 1 millón U/4ml",
+        "concentration": 1000000,
+        "concentrationUnit": "U",
+        "volume": 4,
+        "dilutionOptions": null
+      }
     ],
-    "notes": "En 3-4d pasar a P. Rapilenta"
+    "specialDosing": null,
+    "ageRestrictions": null,
+    "notes": "En 3-4 días pasar a Penicilina Rapilenta"
   },
+
   "ceftriaxona": {
     "name": "Ceftriaxona",
     "dose": "80-100 mg/kg/día",
     "minDose": 80,
     "maxDose": 100,
+    "unit": "mg",
     "maxDaily": "100 mg/kg/día",
+    "maxDailyValue": 100,
     "interval": "Una vez al día",
+    "intervalHours": 24,
     "presentations": [
-      "Bulbo 1 gramo"
+      {
+        "type": "iv",
+        "description": "Bulbo 1 gramo",
+        "concentration": 1000,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": [2, 3, 4]
+      }
     ],
-    "notes": "Neumonía grave, ITU, OMA y EDA x Shigella"
+    "specialDosing": null,
+    "ageRestrictions": null,
+    "notes": "Neumonía grave, ITU, OMA y EDA por Shigella. Requiere dilución para administración"
   },
+
   "cefepime": {
     "name": "Cefepime",
     "dose": "100-150 mg/kg/día",
     "minDose": 100,
     "maxDose": 150,
+    "unit": "mg",
     "maxDaily": "150 mg/kg/día",
+    "maxDailyValue": 150,
     "interval": "Cada 8 horas",
+    "intervalHours": 8,
     "presentations": [
-      "Bulbo 1 gramo"
+      {
+        "type": "iv",
+        "description": "Bulbo 1 gramo",
+        "concentration": 1000,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": [3, 4, 5]
+      }
     ],
-    "notes": "-----"
+    "specialDosing": null,
+    "ageRestrictions": null,
+    "notes": "Cefalosporina de cuarta generación. Infecciones graves"
   },
+
   "ciprofloxacina": {
     "name": "Ciprofloxacina",
     "dose": "10-30 mg/kg/día",
     "minDose": 10,
     "maxDose": 30,
+    "unit": "mg",
     "maxDaily": "30 mg/kg/día",
+    "maxDailyValue": 30,
     "interval": "Cada 8 horas",
+    "intervalHours": 8,
     "presentations": [
-      "Tabletas 250 mg",
-      "Bulbo 200 mg/100 ml"
+      {
+        "type": "solid",
+        "description": "Tabletas 250mg",
+        "concentration": 250,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": null
+      },
+      {
+        "type": "iv",
+        "description": "Bulbo 200mg/100ml",
+        "concentration": 200,
+        "concentrationUnit": "mg",
+        "volume": 100,
+        "dilutionOptions": null
+      }
     ],
-    "notes": "EDA x Shigela 10 a 15mg/kg/día, ITU e IRA 20 a 30mg/kg/día"
+    "specialDosing": {
+      "hasMultipleDoses": true,
+      "options": [
+        {
+          "indication": "EDA por Shigella",
+          "minDose": 10,
+          "maxDose": 15
+        },
+        {
+          "indication": "ITU o IRA",
+          "minDose": 20,
+          "maxDose": 30
+        }
+      ]
+    },
+    "ageRestrictions": null,
+    "notes": "Dosificación varía según patología"
   },
+
   "levofloxacina": {
     "name": "Levofloxacina",
     "dose": "20 mg/kg/día",
     "minDose": 20,
     "maxDose": 20,
+    "unit": "mg",
     "maxDaily": "20 mg/kg/día",
+    "maxDailyValue": 20,
     "interval": "Cada 12 horas",
+    "intervalHours": 12,
     "presentations": [
-      "Tabletas 500 mg",
-      "Bulbo 500 mg/100 ml"
+      {
+        "type": "solid",
+        "description": "Tabletas 500mg",
+        "concentration": 500,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": null
+      },
+      {
+        "type": "iv",
+        "description": "Bulbo 500mg/100ml",
+        "concentration": 500,
+        "concentrationUnit": "mg",
+        "volume": 100,
+        "dilutionOptions": null
+      }
     ],
-    "notes": "ITU, IRA, Piel y partes blandas"
+    "specialDosing": null,
+    "ageRestrictions": null,
+    "notes": "ITU, IRA, Piel y partes blandas. Quinolona de amplio espectro"
   },
+
   "metronidazol": {
     "name": "Metronidazol",
     "dose": "30 mg/kg/día",
     "minDose": 30,
     "maxDose": 30,
+    "unit": "mg",
     "maxDaily": "30 mg/kg/día",
+    "maxDailyValue": 30,
     "interval": "Cada 8 horas",
+    "intervalHours": 8,
     "presentations": [
-      "Tabletas 250 mg",
-      "Frasco 500 mg/100 ml"
+      {
+        "type": "solid",
+        "description": "Tabletas 250mg",
+        "concentration": 250,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": null
+      },
+      {
+        "type": "iv",
+        "description": "Frasco 500mg/100ml",
+        "concentration": 500,
+        "concentrationUnit": "mg",
+        "volume": 100,
+        "dilutionOptions": null
+      }
     ],
-    "notes": "Absceso y retrof, Antiparasitario"
+    "specialDosing": null,
+    "ageRestrictions": null,
+    "notes": "Abscesos, infecciones anaerobias, antiparasitario"
   },
+
   "sulfaprim": {
-    "name": "Sulfaprim",
+    "name": "Sulfaprim (Trimetoprim + Sulfametoxazol)",
     "dose": "40-60 mg/kg/día",
     "minDose": 40,
     "maxDose": 60,
+    "unit": "mg",
     "maxDaily": "60 mg/kg/día",
-    "interval": "Cada 8 horas",
+    "maxDailyValue": 60,
+    "interval": "Cada 12 horas",
+    "intervalHours": 12,
     "presentations": [
-      "Tabletas 480 mg",
-      "Ámpulas 400mg(SMX) /80 mg/5ml"
+      {
+        "type": "solid",
+        "description": "Tabletas 480mg (400mg SMX + 80mg TMP)",
+        "concentration": 480,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": null
+      },
+      {
+        "type": "iv",
+        "description": "Ámpulas 400mg SMX + 80mg TMP/5ml",
+        "concentration": 480,
+        "concentrationUnit": "mg",
+        "volume": 5,
+        "dilutionOptions": null
+      }
     ],
-    "notes": "ITU, Piel"
+    "specialDosing": null,
+    "ageRestrictions": null,
+    "notes": "ITU, infecciones de piel. Dosis calculada en base a SMX"
   },
+
   "cloranfenicol": {
     "name": "Cloranfenicol",
     "dose": "50 mg/kg/día",
     "minDose": 50,
     "maxDose": 50,
+    "unit": "mg",
     "maxDaily": "50 mg/kg/día",
+    "maxDailyValue": 50,
     "interval": "Cada 6 horas",
+    "intervalHours": 6,
     "presentations": [
-      "Tabletas 250 mg",
-      "Suspensión 125/5 ml",
-      "Bulbo de 1 gramo"
+      {
+        "type": "solid",
+        "description": "Tabletas 250mg",
+        "concentration": 250,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": null
+      },
+      {
+        "type": "liquid",
+        "description": "Suspensión 125mg/5ml",
+        "concentration": 125,
+        "concentrationUnit": "mg",
+        "volume": 5,
+        "dilutionOptions": null
+      },
+      {
+        "type": "iv",
+        "description": "Bulbo 1 gramo",
+        "concentration": 1000,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": [5, 10]
+      }
     ],
-    "notes": "Fiebre tifoidea, Infecciones del SNC x Hib, strep pneumo, N. meningitidis"
+    "specialDosing": null,
+    "ageRestrictions": null,
+    "notes": "Fiebre tifoidea, infecciones del SNC. Uso reservado por toxicidad (anemia aplásica)"
   },
+
   "vancomicina": {
     "name": "Vancomicina",
     "dose": "60 mg/kg/día",
     "minDose": 60,
     "maxDose": 60,
+    "unit": "mg",
     "maxDaily": "60 mg/kg/día",
+    "maxDailyValue": 60,
     "interval": "Cada 6 horas",
+    "intervalHours": 6,
     "presentations": [
-      "Bulbo 500 mg"
+      {
+        "type": "iv",
+        "description": "Bulbo 500mg",
+        "concentration": 500,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": [5, 10]
+      }
     ],
-    "notes": "Infecciones graves por GRAM+, Absceso hepático, actinomicosis"
+    "specialDosing": null,
+    "ageRestrictions": null,
+    "notes": "Infecciones graves por GRAM+, MRSA, absceso hepático"
   },
+
   "clindamicina": {
     "name": "Clindamicina",
     "dose": "20-40 mg/kg/día",
     "minDose": 20,
     "maxDose": 40,
+    "unit": "mg",
     "maxDaily": "40 mg/kg/día",
-    "interval": "c/8-12h",
+    "maxDailyValue": 40,
+    "interval": "Cada 8-12 horas",
+    "intervalHours": 8,
     "presentations": [
-      "Ámpulas 600 mg/4ml",
-      "Tabletas 300 mg"
+      {
+        "type": "iv",
+        "description": "Ámpulas 600mg/4ml",
+        "concentration": 600,
+        "concentrationUnit": "mg",
+        "volume": 4,
+        "dilutionOptions": null
+      },
+      {
+        "type": "solid",
+        "description": "Tabletas 300mg",
+        "concentration": 300,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": null
+      }
     ],
-    "notes": "absc pulm, septicemia, ITU"
+    "specialDosing": null,
+    "ageRestrictions": null,
+    "notes": "Absceso pulmonar, septicemia, ITU. Riesgo de colitis pseudomembranosa"
   },
+
   "fosfomicina": {
     "name": "Fosfomicina",
     "dose": "150 mg/kg/día",
     "minDose": 150,
     "maxDose": 150,
+    "unit": "mg",
     "maxDaily": "150 mg/kg/día",
+    "maxDailyValue": 150,
     "interval": "Cada 6 horas",
+    "intervalHours": 6,
     "presentations": [
-      "Bulbo 1 gramo",
-      "Tabletas 500 mg"
+      {
+        "type": "iv",
+        "description": "Bulbo 1 gramo",
+        "concentration": 1000,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": [4, 5, 10]
+      },
+      {
+        "type": "solid",
+        "description": "Tabletas 500mg",
+        "concentration": 500,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": null
+      }
     ],
-    "notes": "Inf dermat, NAC Compl"
+    "specialDosing": null,
+    "ageRestrictions": null,
+    "notes": "Infecciones dermatológicas, NAC complicada"
   },
+
   "oseltamivir": {
     "name": "Oseltamivir",
-    "dose": "3 mg/kg/día x 5d",
+    "dose": "3 mg/kg/día por 5 días",
     "minDose": 3,
     "maxDose": 3,
+    "unit": "mg",
     "maxDaily": "3 mg/kg/día",
-    "interval": "c/6h",
+    "maxDailyValue": 3,
+    "interval": "Cada 12 horas",
+    "intervalHours": 12,
     "presentations": [
-      "Cápsulas 75 mg",
-      "Suspensión 20 mg/5 ml"
+      {
+        "type": "solid",
+        "description": "Cápsulas 75mg",
+        "concentration": 75,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": null
+      },
+      {
+        "type": "liquid",
+        "description": "Suspensión 12mg/ml",
+        "concentration": 12,
+        "concentrationUnit": "mg",
+        "volume": 1,
+        "dilutionOptions": null
+      }
     ],
-    "notes": "Para influenza solo antes 3d del cuadro clínico"
+    "specialDosing": null,
+    "ageRestrictions": {
+      "timeRestriction": true,
+      "warning": "Debe iniciarse dentro de las primeras 72 horas del inicio de síntomas para ser efectivo"
+    },
+    "notes": "Antiviral para influenza. Eficacia reducida después de 3 días de síntomas"
   },
+
   "aciclovir": {
     "name": "Aciclovir",
-    "dose": "5-20 mg/kg/día",
+    "dose": "5-20 mg/kg/dosis",
     "minDose": 5,
     "maxDose": 20,
-    "maxDaily": "20 mg/kg/día",
-    "interval": "c/6h x 5-7d",
+    "unit": "mg",
+    "maxDaily": "60 mg/kg/día",
+    "maxDailyValue": 60,
+    "interval": "Cada 8 horas por 5-7 días",
+    "intervalHours": 8,
     "presentations": [
-      "Bulbo 250 mg",
-      "Tabletas 200 mg",
-      "Crema 5%"
+      {
+        "type": "iv",
+        "description": "Bulbo 250mg",
+        "concentration": 250,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": [5, 10]
+      },
+      {
+        "type": "solid",
+        "description": "Tabletas 200mg",
+        "concentration": 200,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": null
+      },
+      {
+        "type": "topical",
+        "description": "Crema 5%",
+        "concentration": 50,
+        "concentrationUnit": "mg",
+        "volume": 1,
+        "dilutionOptions": null
+      }
     ],
-    "notes": "Virus H. simple (piel y mucosas)"
+    "specialDosing": null,
+    "ageRestrictions": null,
+    "notes": "Virus Herpes simple (piel y mucosas). Dosis altas para encefalitis"
   },
+
   "salbutamol": {
     "name": "Salbutamol",
     "dose": "0.15 mg/kg/dosis",
     "minDose": 0.15,
     "maxDose": 0.15,
-    "maxDaily": "Según necesidad",
-    "interval": "c/6h",
+    "unit": "mg",
+    "maxDaily": null,
+    "maxDailyValue": null,
+    "interval": "Cada 6 horas o según necesidad",
+    "intervalHours": 6,
     "presentations": [
-      "Aerosol 100 μg/dosis",
-      "Ámpulas 0.5mg/ml",
-      "Frasco 2 mg/ml",
-      "Suspensión 2 mg/5 ml",
-      "Tabletas 2 mg"
+      {
+        "type": "aerosol",
+        "description": "Aerosol 100 μg/dosis",
+        "concentration": 0.1,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": null
+      },
+      {
+        "type": "iv",
+        "description": "Ámpulas 0.5mg/ml",
+        "concentration": 0.5,
+        "concentrationUnit": "mg",
+        "volume": 1,
+        "dilutionOptions": null
+      },
+      {
+        "type": "nebulizacion",
+        "description": "Frasco 2mg/ml (para nebulizar)",
+        "concentration": 2,
+        "concentrationUnit": "mg",
+        "volume": 1,
+        "dilutionOptions": null
+      },
+      {
+        "type": "liquid",
+        "description": "Suspensión 2mg/5ml",
+        "concentration": 2,
+        "concentrationUnit": "mg",
+        "volume": 5,
+        "dilutionOptions": null
+      },
+      {
+        "type": "solid",
+        "description": "Tabletas 2mg",
+        "concentration": 2,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": null
+      }
     ],
-    "notes": "Para aerosol se multiplica 0.6 x Kg = gotas c/20 min x 1h"
+    "specialDosing": {
+      "hasMultipleDoses": true,
+      "options": [
+        {
+          "indication": "Dosis estándar",
+          "minDose": 0.15,
+          "maxDose": 0.15
+        },
+        {
+          "indication": "Nebulización (fórmula especial)",
+          "formula": "0.6 × kg = gotas",
+          "forPresentation": "2mg/ml",
+          "note": "Cada 20 min por 1 hora"
+        }
+      ]
+    },
+    "ageRestrictions": null,
+    "notes": "Broncodilatador de acción rápida. Para nebulización usar fórmula especial"
   },
-   "hidrocortisona": {
+
+  "hidrocortisona": {
     "name": "Hidrocortisona",
-    "dose": "5-10 mg/kg/dosis o día",
+    "dose": "5-10 mg/kg/dosis",
     "minDose": 5,
     "maxDose": 10,
-    "maxDaily": "-----",
-    "interval": "----",
+    "unit": "mg",
+    "maxDaily": null,
+    "maxDailyValue": null,
+    "interval": "Según indicación",
+    "intervalHours": null,
     "presentations": [
-      "Bulbo 100 mg/1 ml",
-      "Bulbo 500 mg/5 ml"
+      {
+        "type": "iv",
+        "description": "Bulbo 100mg/ml",
+        "concentration": 100,
+        "concentrationUnit": "mg",
+        "volume": 1,
+        "dilutionOptions": null
+      },
+      {
+        "type": "iv",
+        "description": "Bulbo 500mg/5ml",
+        "concentration": 500,
+        "concentrationUnit": "mg",
+        "volume": 5,
+        "dilutionOptions": null
+      }
     ],
-    "notes": "-----"
-  }, 
+    "specialDosing": null,
+    "ageRestrictions": null,
+    "notes": "Corticoide de acción corta. Shock, insuficiencia adrenal"
+  },
+
   "azitromicina": {
     "name": "Azitromicina",
     "dose": "10 mg/kg/día",
     "minDose": 10,
     "maxDose": 10,
+    "unit": "mg",
     "maxDaily": "10 mg/kg/día",
+    "maxDailyValue": 10,
     "interval": "Una vez al día",
+    "intervalHours": 24,
     "presentations": [
-      "Tabletas de 500mg",
-      "Suspensión 200mg/5ml (40mg/ml)",
-      "Cápsulas de 250mg"
+      {
+        "type": "solid",
+        "description": "Tabletas 500mg",
+        "concentration": 500,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": null
+      },
+      {
+        "type": "liquid",
+        "description": "Suspensión 200mg/5ml",
+        "concentration": 200,
+        "concentrationUnit": "mg",
+        "volume": 5,
+        "dilutionOptions": null
+      },
+      {
+        "type": "solid",
+        "description": "Cápsulas 250mg",
+        "concentration": 250,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": null
+      }
     ],
-    "notes": "20mg/kg/día en el tratamiento del cólera"
+    "specialDosing": {
+      "hasMultipleDoses": true,
+      "options": [
+        {
+          "indication": "Uso general",
+          "minDose": 10,
+          "maxDose": 10
+        },
+        {
+          "indication": "Cólera",
+          "minDose": 20,
+          "maxDose": 20
+        }
+      ]
+    },
+    "ageRestrictions": null,
+    "notes": "Macrólido de dosis única diaria"
   },
+
   "eritromicina": {
     "name": "Eritromicina",
     "dose": "25-50 mg/kg/día",
     "minDose": 25,
     "maxDose": 50,
+    "unit": "mg",
     "maxDaily": "50 mg/kg/día",
-    "interval": "-----",
+    "maxDailyValue": 50,
+    "interval": "Cada 6-8 horas",
+    "intervalHours": 6,
     "presentations": [
-      "Bulbo 1 gramo",
-      "Tabletas 250 mg",
-      "Suspensión 125 mg/5 ml",
-      "Suspensión 250 mg/5 ml"
+      {
+        "type": "iv",
+        "description": "Bulbo 1 gramo",
+        "concentration": 1000,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": [10, 20]
+      },
+      {
+        "type": "solid",
+        "description": "Tabletas 250mg",
+        "concentration": 250,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": null
+      },
+      {
+        "type": "liquid",
+        "description": "Suspensión 125mg/5ml",
+        "concentration": 125,
+        "concentrationUnit": "mg",
+        "volume": 5,
+        "dilutionOptions": null
+      },
+      {
+        "type": "liquid",
+        "description": "Suspensión 250mg/5ml",
+        "concentration": 250,
+        "concentrationUnit": "mg",
+        "volume": 5,
+        "dilutionOptions": null
+      }
     ],
-    "notes": "Alergia a Penicilina, Profilaxis de F.reum"
+    "specialDosing": null,
+    "ageRestrictions": null,
+    "notes": "Alternativa en alergia a Penicilina. Profilaxis de fiebre reumática"
   },
+
   "dexametasona": {
     "name": "Dexametasona",
-    "dose": "0.15-0.6 mg/kg/dosis o día",
+    "dose": "0.15-0.6 mg/kg/dosis",
     "minDose": 0.15,
     "maxDose": 0.6,
-    "maxDaily": "-----",
-    "interval": "-----",
+    "unit": "mg",
+    "maxDaily": null,
+    "maxDailyValue": null,
+    "interval": "Según indicación",
+    "intervalHours": null,
     "presentations": [
-      "Bulbo 4mg /8 mg",
-      "Tabletas 4 mg",
-      "Tabletas 0.75 mg"
+      {
+        "type": "iv",
+        "description": "Bulbo 4mg",
+        "concentration": 4,
+        "concentrationUnit": "mg",
+        "volume": 1,
+        "dilutionOptions": null
+      },
+      {
+        "type": "iv",
+        "description": "Bulbo 8mg",
+        "concentration": 8,
+        "concentrationUnit": "mg",
+        "volume": 2,
+        "dilutionOptions": null
+      },
+      {
+        "type": "solid",
+        "description": "Tabletas 4mg",
+        "concentration": 4,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": null
+      },
+      {
+        "type": "solid",
+        "description": "Tabletas 0.75mg",
+        "concentration": 0.75,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": null
+      }
     ],
-    "notes": "laringitis"
+    "specialDosing": null,
+    "ageRestrictions": null,
+    "notes": "Laringitis, edema cerebral. Corticoide potente de acción prolongada"
   },
+
   "prednisona": {
     "name": "Prednisona",
     "dose": "1-2 mg/kg/día",
     "minDose": 1,
     "maxDose": 2,
-    "maxDaily": "60 mg/día máximo",
+    "unit": "mg",
+    "maxDaily": "60 mg/día",
+    "maxDailyValue": 60,
     "interval": "Cada 12-24 horas",
+    "intervalHours": 12,
     "presentations": [
-      "Tabletas de 5mg, 10mg, 20mg",
-      "Suspensión 5mg/5ml (1mg/ml)"
+      {
+        "type": "solid",
+        "description": "Tabletas 5mg",
+        "concentration": 5,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": null
+      },
+      {
+        "type": "solid",
+        "description": "Tabletas 10mg",
+        "concentration": 10,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": null
+      },
+      {
+        "type": "solid",
+        "description": "Tabletas 20mg",
+        "concentration": 20,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": null
+      },
+      {
+        "type": "liquid",
+        "description": "Suspensión 5mg/5ml",
+        "concentration": 5,
+        "concentrationUnit": "mg",
+        "volume": 5,
+        "dilutionOptions": null
+      }
     ],
-    "notes": "Uso limitado tiempo, supresión adrenal, osteoporosis"
+    "specialDosing": null,
+    "ageRestrictions": null,
+    "notes": "Uso limitado en tiempo. Riesgo de supresión adrenal y osteoporosis"
   },
+
   "epinefrina": {
     "name": "Epinefrina",
     "dose": "0.01 mg/kg/dosis",
     "minDose": 0.01,
     "maxDose": 0.01,
-    "maxDaily": "sin pasar de 0.3 ml",
-    "interval": "c/30 min 3 dosis",
+    "unit": "mg",
+    "maxDaily": null,
+    "maxDailyValue": null,
+    "maxSingleDose": 0.3,
+    "interval": "Cada 30 min (máximo 3 dosis)",
+    "intervalHours": 0.5,
     "presentations": [
-      "Ámpulas 1mg/1ml"
+      {
+        "type": "iv",
+        "description": "Ámpulas 1mg/1ml",
+        "concentration": 1,
+        "concentrationUnit": "mg",
+        "volume": 1,
+        "dilutionOptions": null
+      }
     ],
-    "notes": "CAAB, Edema angioneurótico y de glotis, urticaria"
+    "specialDosing": null,
+    "ageRestrictions": null,
+    "notes": "Crisis asmática aguda, anafilaxia, edema angioneurótico. MÁXIMO 0.3 ml por dosis"
   },
+
   "difenhidramina": {
     "name": "Difenhidramina",
     "dose": "5 mg/kg/día",
     "minDose": 5,
     "maxDose": 5,
+    "unit": "mg",
     "maxDaily": "5 mg/kg/día",
-    "interval": "c/8h",
+    "maxDailyValue": 5,
+    "interval": "Cada 8 horas",
+    "intervalHours": 8,
     "presentations": [
-      "Tabletas 25 mg",
-      "Suspensión 12.5 mg/5ml",
-      "Ámpulas 20 mg/2ml"
+      {
+        "type": "solid",
+        "description": "Tabletas 25mg",
+        "concentration": 25,
+        "concentrationUnit": "mg",
+        "volume": null,
+        "dilutionOptions": null
+      },
+      {
+        "type": "liquid",
+        "description": "Suspensión 12.5mg/5ml",
+        "concentration": 12.5,
+        "concentrationUnit": "mg",
+        "volume": 5,
+        "dilutionOptions": null
+      },
+      {
+        "type": "iv",
+        "description": "Ámpulas 20mg/2ml",
+        "concentration": 20,
+        "concentrationUnit": "mg",
+        "volume": 2,
+        "dilutionOptions": null
+      }
     ],
-    "notes": "-----"
+    "specialDosing": null,
+    "ageRestrictions": null,
+    "notes": "Antihistamínico de primera generación. Reacciones alérgicas"
   }
 }
