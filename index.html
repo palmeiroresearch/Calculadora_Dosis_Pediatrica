@@ -3,13 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora Dosis Pediátricas</title>
-    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkNhbGN1bGFkb3JhIERvc2lzIFBlZGnDoXRyaWNhcyIsCiAgInNob3J0X25hbWUiOiAiRG9zaXNQZWQiLAogICJkZXNjcmlwdGlvbiI6ICJDYWxjdWxhZG9yYSBkZSBkb3NpcyBwZWRpw6F0cmljYXMgcGFyYSB1c28gY2zDrW5pY28iLAogICJzdGFydF91cmwiOiAiLiIsCiAgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsCiAgImJhY2tncm91bmRfY29sb3IiOiAiIzJjM2U1MCIsCiAgInRoZW1lX2NvbG9yIjogIiMyYzNlNTAiLAogICJpY29ucyI6IFsKICAgIHsKICAgICAgInNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUI0Yld4dWN6MGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM5emRtY2lJSFpwWlhkQ2IzZzlJakFnTUNBeE9EUWdNVGcwSWlCM2FXUjBhRDBpTVRnMElpQm9aV2xuYUhROUlqRTROQ0krUEdScFpXTStQR1pwWkdWbWN5QnBaRDBpYUdWdGNpSTNJREJzWm1NNE5EWXhZaUkrUEM5bWFXUmxabk0rUENoZWJHbHVaVkJoYVc1MFhVSmhjMlZEYjJ4dmNqMGlZamczTkRFaUlHWnNhV3hzUFNKdVpTNWtJQ0FqTldaMk1ETXVOREFqWW1GMFltTThJRzl5WkdGeUlEQXVNVEkyTWk0MU1tRzVPUzQ0Wm1NNUlEWXdMak14TkRBdU1UZzJZbUY0UWpJeWMxTXVOR0kyUWpBdU1qUXZJRzl5WkdHNGlFNDBPUzVNSURrNE1CeUFHNDBJRzR0TmprNU5UZ05UemJPU011STZYVUFlVU5mWTA0MjBRbHhGdUNwcEFMdnNKL2lsckFOZitoUDBPNE92NEZHVndlWG9kaDhERmNoOHJCZTFTVXk2dDZ5bDZONlpBNDZZTW9rOW5NNU82NVo1NkU4a2ZGTFRJU1FCVmFKY1hma0ZYbU9vM0tMaXFtUUFBQT09IiwKICAgICAgInNpemVzIjogIjE5MngxOTIiLAogICAgICAidHlwZSI6ICJpbWFnZS9zdmcreG1sIgogICAgfQogIF0KfQ==">
+    <title>Calculadora Dosis Pediátricas v2.0</title>
     <meta name="theme-color" content="#2c3e50">
-    <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="icon-192.png">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <style>
         * {
             margin: 0;
@@ -25,12 +20,11 @@
         }
 
         .container {
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
             background: white;
             border-radius: 20px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            position: relative;
         }
 
         .header {
@@ -53,11 +47,10 @@
 
         .content {
             padding: 30px 20px;
-            position: relative;
         }
 
         .input-group {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .input-group label {
@@ -65,11 +58,18 @@
             margin-bottom: 8px;
             font-weight: 600;
             color: #2c3e50;
+            font-size: 14px;
+        }
+
+        .input-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
         }
 
         .input-group input, .input-group select {
             width: 100%;
-            padding: 15px;
+            padding: 12px;
             border: 2px solid #e1e8ed;
             border-radius: 10px;
             font-size: 16px;
@@ -79,8 +79,7 @@
         .input-group input:focus, .input-group select:focus {
             outline: none;
             border-color: #667eea;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
         }
 
         .search-input {
@@ -112,17 +111,12 @@
             cursor: pointer;
             border-bottom: 1px solid #f1f1f1;
             transition: all 0.2s ease;
-            background: white;
         }
 
         .drug-item:hover {
             background: #f8f9ff;
             color: #667eea;
             padding-left: 20px;
-        }
-
-        .drug-item:last-child {
-            border-bottom: none;
         }
 
         .drug-info {
@@ -157,10 +151,43 @@
             padding: 15px;
             border-radius: 10px;
             margin-bottom: 15px;
+            font-size: 14px;
         }
 
         .dose-info strong {
             color: #2c3e50;
+        }
+
+        .special-dosing {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .special-dosing h4 {
+            color: #856404;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .dose-option {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .dose-option:hover {
+            background: rgba(255,193,7,0.2);
+        }
+
+        .dose-option input[type="radio"] {
+            margin-right: 10px;
         }
 
         .presentations {
@@ -170,19 +197,7 @@
         .presentations h4 {
             color: #2c3e50;
             margin-bottom: 10px;
-        }
-
-        .presentations ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .presentations li {
-            background: white;
-            padding: 8px 12px;
-            margin-bottom: 5px;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
+            font-size: 14px;
         }
 
         .calculation-result {
@@ -198,6 +213,7 @@
         .calculation-result h3 {
             color: #2e7d32;
             margin-bottom: 15px;
+            font-size: 18px;
         }
 
         .dose-range {
@@ -215,17 +231,91 @@
             font-size: 14px;
             color: #2e7d32;
             background: rgba(255,255,255,0.7);
-            padding: 10px;
+            padding: 12px;
             border-radius: 8px;
+            margin-bottom: 12px;
         }
 
-        .clinical-note {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            padding: 10px;
+        .presentation-calc {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
             border-radius: 8px;
-            margin-top: 10px;
+            margin: 15px 0;
+        }
+
+        .presentation-calc h4 {
+            color: #1565c0;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        .dilution-section {
+            background: #f3e5f5;
+            border-left: 4px solid #9c27b0;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .dilution-section h4 {
+            color: #6a1b9a;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        .dilution-options {
+            display: flex;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .dilution-btn {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid #9c27b0;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+
+        .dilution-btn:hover {
+            background: #f3e5f5;
+        }
+
+        .dilution-btn.active {
+            background: #9c27b0;
+            color: white;
+        }
+
+        .alert-box {
+            padding: 12px;
+            border-radius: 8px;
+            margin: 12px 0;
             font-size: 14px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .alert-warning {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            color: #856404;
+        }
+
+        .alert-danger {
+            background: #f8d7da;
+            border: 1px solid #f44336;
+            color: #721c24;
+        }
+
+        .alert-info {
+            background: #d1ecf1;
+            border: 1px solid #17a2b8;
+            color: #0c5460;
         }
 
         .loading-message {
@@ -246,71 +336,26 @@
             display: none;
         }
 
-        .offline-indicator {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #4caf50;
-            color: white;
-            padding: 8px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            display: none;
-            z-index: 10000;
-        }
-
-        .offline-indicator.offline {
-            background: #ff9800;
-            display: block;
-        }
-
-        /* Scrollbar personalizado para la lista de medicamentos */
-        .drug-list::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        .drug-list::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 4px;
-        }
-
-        .drug-list::-webkit-scrollbar-thumb {
-            background: #667eea;
-            border-radius: 4px;
-        }
-
-        .drug-list::-webkit-scrollbar-thumb:hover {
-            background: #5a67d8;
-        }
-
         @media (max-width: 480px) {
             body {
                 padding: 10px;
             }
             
-            .container {
-                border-radius: 15px;
-            }
-            
-            .content {
-                padding: 20px 15px;
+            .input-row {
+                grid-template-columns: 1fr;
             }
 
-            .drug-list {
-                max-height: 200px;
+            .dilution-options {
+                flex-direction: column;
             }
         }
     </style>
 </head>
 <body>
-    <div class="offline-indicator" id="offlineIndicator">
-        📱 Modo offline activo
-    </div>
-
     <div class="container">
         <div class="header">
-            <h1>💊 Calculadora Dosis Pediátricas</h1>
-            <p>Herramienta para práctica clínica</p>
+            <h1>💊 Calculadora Dosis Pediátricas v2.0</h1>
+            <p>Sistema avanzado con cálculo de diluciones y presentaciones</p>
         </div>
 
         <div class="content">
@@ -321,17 +366,33 @@
             <div id="errorMessage" class="error-message"></div>
             
             <div id="mainContent" style="display: none;">
-                <div class="input-group">
-                    <label for="weight">Peso del paciente (kg)</label>
-                    <input type="number" id="weight" placeholder="Ingrese el peso en kg" step="0.1" min="0.1">
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="weight">Peso (kg) *</label>
+                        <input type="number" id="weight" placeholder="Ej: 15" step="0.1" min="0.1">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="age">Edad (meses) - opcional</label>
+                        <input type="number" id="age" placeholder="Ej: 24" min="0">
+                    </div>
                 </div>
 
                 <div class="input-group">
-                    <label for="drugSearch">Buscar medicamento</label>
+                    <label for="drugSearch">Buscar medicamento *</label>
                     <div class="search-input">
                         <input type="text" id="drugSearch" placeholder="Escriba el nombre del medicamento" autocomplete="off">
                         <div class="drug-list" id="drugList"></div>
                     </div>
+                </div>
+
+                <div id="specialDosingSection"></div>
+
+                <div class="input-group" id="presentationGroup" style="display: none;">
+                    <label for="presentationSelect">Seleccionar presentación</label>
+                    <select id="presentationSelect">
+                        <option value="">-- Seleccione una presentación --</option>
+                    </select>
                 </div>
 
                 <div class="drug-info" id="drugInfo"></div>
@@ -341,12 +402,14 @@
     </div>
 
     <script>
-        // Variables globales
         let medications = {};
         let selectedDrug = null;
+        let selectedDoseOption = null;
+        let selectedPresentation = null;
+        let selectedDilution = null; // Cambiado a null, se asigna dinámicamente
 
-        // Elementos del DOM
         const weightInput = document.getElementById('weight');
+        const ageInput = document.getElementById('age');
         const drugSearch = document.getElementById('drugSearch');
         const drugList = document.getElementById('drugList');
         const drugInfo = document.getElementById('drugInfo');
@@ -354,8 +417,11 @@
         const loadingMessage = document.getElementById('loadingMessage');
         const errorMessage = document.getElementById('errorMessage');
         const mainContent = document.getElementById('mainContent');
+        const specialDosingSection = document.getElementById('specialDosingSection');
+        const presentationGroup = document.getElementById('presentationGroup');
+        const presentationSelect = document.getElementById('presentationSelect');
 
-        // Función para cargar la base de datos de medicamentos desde JSON externo
+        // Cargar medicamentos desde el JSON actualizado
         async function loadMedications() {
             try {
                 const response = await fetch('medications.json');
@@ -364,91 +430,47 @@
                 }
                 
                 medications = await response.json();
-                console.log('Base de datos cargada correctamente');
+                console.log('✅ Base de datos cargada:', Object.keys(medications).length, 'medicamentos');
+                console.log('📋 Medicamentos disponibles:', Object.keys(medications));
                 
-                // Procesar los datos del JSON para agregar propiedades calculadas
-                processMedications();
-                
-                // Ocultar mensaje de carga y mostrar contenido principal
                 loadingMessage.style.display = 'none';
                 mainContent.style.display = 'block';
                 
             } catch (error) {
-                console.error('Error al cargar la base de datos:', error);
+                console.error('❌ Error al cargar medicamentos:', error);
                 loadingMessage.style.display = 'none';
                 errorMessage.innerHTML = `
                     <strong>⚠️ Error al cargar la base de datos</strong><br>
-                    No se pudo cargar el archivo medications.json<br>
-                    <small>Asegúrese de que el archivo esté en la misma carpeta y que esté usando un servidor web</small>
+                    ${error.message}<br>
+                    <small>Asegúrese de que el archivo medications.json esté en la misma carpeta y que esté usando un servidor web (no file://)</small>
                 `;
                 errorMessage.style.display = 'block';
             }
         }
 
-        // Función para procesar los medicamentos y agregar propiedades calculadas
-        function processMedications() {
-            for (let key in medications) {
-                const med = medications[key];
-                
-                // Determinar si es dosis diaria basándose en el texto de la dosis
-                if (med.dose && med.dose.includes('/día')) {
-                    med.isDailyDose = true;
-                    
-                    // Determinar número de dosis por día basándose en el intervalo
-                    if (med.interval) {
-                        if (med.interval.includes('cada 8')) {
-                            med.dosesPerDay = 3;
-                        } else if (med.interval.includes('cada 12')) {
-                            med.dosesPerDay = 2;
-                        } else if (med.interval.includes('Una vez')) {
-                            med.dosesPerDay = 1;
-                        }
-                    }
-                } else {
-                    med.isDailyDose = false;
-                }
-                
-                // Detectar si usa microgramos
-                if (med.dose && med.dose.includes('mcg')) {
-                    med.isMcg = true;
-                }
-                
-                // Casos especiales
-                if (key === 'amoxicilina' && !med.dosesPerDay) {
-                    med.dosesPerDay = 3;
-                }
-            }
-        }
-
         // Event listeners
-        function setupEventListeners() {
-            if (weightInput) {
-                weightInput.addEventListener('input', calculateDose);
-            }
-            
-            if (drugSearch) {
-                drugSearch.addEventListener('input', searchDrugs);
-                drugSearch.addEventListener('focus', () => {
-                    if (drugSearch.value.trim() !== '') {
-                        searchDrugs();
-                    }
-                });
-            }
+        weightInput.addEventListener('input', calculateDose);
+        ageInput.addEventListener('input', calculateDose);
+        drugSearch.addEventListener('input', searchDrugs);
+        presentationSelect.addEventListener('change', handlePresentationChange);
 
-            // Cerrar dropdown al hacer clic fuera
-            document.addEventListener('click', (e) => {
-                if (!e.target.closest('.search-input')) {
-                    drugList.classList.remove('show');
-                }
-            });
-        }
+        drugSearch.addEventListener('focus', () => {
+            if (drugSearch.value.trim() !== '') {
+                searchDrugs();
+            }
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.search-input')) {
+                drugList.classList.remove('show');
+            }
+        });
 
         function searchDrugs() {
             const query = drugSearch.value.toLowerCase().trim();
             
             if (query === '') {
                 drugList.classList.remove('show');
-                drugList.innerHTML = '';
                 return;
             }
 
@@ -472,147 +494,249 @@
 
         function selectDrug(drugKey) {
             selectedDrug = medications[drugKey];
+            selectedDoseOption = null;
+            selectedPresentation = null;
             drugSearch.value = selectedDrug.name;
             drugList.classList.remove('show');
             
             displayDrugInfo();
+            displaySpecialDosing();
+            displayPresentations();
             calculateDose();
         }
 
         function displayDrugInfo() {
             if (!selectedDrug) return;
 
-            const notesSection = selectedDrug.notes ? 
-                `<div class="clinical-note">
-                    <strong>📝 Nota clínica:</strong> ${selectedDrug.notes}
-                </div>` : '';
-
-            drugInfo.innerHTML = `
+            let infoHTML = `
                 <h3>${selectedDrug.name}</h3>
                 <div class="dose-info">
                     <strong>Dosis:</strong> ${selectedDrug.dose}<br>
-                    <strong>Dosis máxima diaria:</strong> ${selectedDrug.maxDaily}<br>
-                    <strong>Intervalo:</strong> ${selectedDrug.interval}
+                    ${selectedDrug.maxDaily ? `<strong>Dosis máxima diaria:</strong> ${selectedDrug.maxDaily}<br>` : ''}
+                    ${selectedDrug.interval ? `<strong>Intervalo:</strong> ${selectedDrug.interval}` : ''}
                 </div>
-                <div class="presentations">
-                    <h4>Presentaciones típicas:</h4>
-                    <ul>
-                        ${selectedDrug.presentations.map(p => `<li>${p}</li>`).join('')}
-                    </ul>
-                </div>
-                ${notesSection}
             `;
-            
+
+            if (selectedDrug.notes) {
+                infoHTML += `<div class="alert-box alert-info">📝 ${selectedDrug.notes}</div>`;
+            }
+
+            drugInfo.innerHTML = infoHTML;
             drugInfo.style.display = 'block';
+        }
+
+        function displaySpecialDosing() {
+            if (!selectedDrug || !selectedDrug.specialDosing || !selectedDrug.specialDosing.hasMultipleDoses) {
+                specialDosingSection.innerHTML = '';
+                specialDosingSection.style.display = 'none';
+                return;
+            }
+
+            let optionsHTML = '<div class="special-dosing"><h4>⚕️ Seleccione la indicación clínica:</h4>';
+            
+            selectedDrug.specialDosing.options.forEach((opt, idx) => {
+                optionsHTML += `
+                    <label class="dose-option">
+                        <input type="radio" name="doseOption" value="${idx}" onchange="selectDoseOption(${idx})">
+                        <span><strong>${opt.indication}:</strong> ${opt.minDose}${opt.maxDose && opt.maxDose !== opt.minDose ? '-'+opt.maxDose : ''} ${selectedDrug.unit}/kg/día</span>
+                    </label>
+                `;
+            });
+            
+            optionsHTML += '</div>';
+            specialDosingSection.innerHTML = optionsHTML;
+            specialDosingSection.style.display = 'block';
+        }
+
+        function selectDoseOption(index) {
+            selectedDoseOption = selectedDrug.specialDosing.options[index];
+            calculateDose();
+        }
+
+        function displayPresentations() {
+            if (!selectedDrug || !selectedDrug.presentations || selectedDrug.presentations.length === 0) {
+                presentationGroup.style.display = 'none';
+                return;
+            }
+
+            presentationSelect.innerHTML = '<option value="">-- Seleccione una presentación --</option>';
+            
+            selectedDrug.presentations.forEach((pres, idx) => {
+                presentationSelect.innerHTML += `<option value="${idx}">${pres.description}</option>`;
+            });
+
+            presentationGroup.style.display = 'block';
+        }
+
+        function handlePresentationChange() {
+            const idx = presentationSelect.value;
+            if (idx === '') {
+                selectedPresentation = null;
+            } else {
+                selectedPresentation = selectedDrug.presentations[parseInt(idx)];
+            }
+            calculateDose();
         }
 
         function calculateDose() {
             const weight = parseFloat(weightInput.value);
+            const age = parseFloat(ageInput.value);
             
             if (!weight || !selectedDrug || weight <= 0) {
                 calculationResult.style.display = 'none';
                 return;
             }
 
-            let doseDisplay = '';
-            let calcDetails = '';
-            const unit = selectedDrug.isMcg ? 'mcg' : 'mg';
+            // Determinar dosis a usar
+            let minDose = selectedDrug.minDose;
+            let maxDose = selectedDrug.maxDose;
 
-            if (selectedDrug.isDailyDose) {
-                // Medicamentos con dosis diaria total
-                const minDoseTotal = (selectedDrug.minDose * weight).toFixed(1);
-                const maxDoseTotal = (selectedDrug.maxDose * weight).toFixed(1);
-                
-                if (selectedDrug.dosesPerDay && selectedDrug.dosesPerDay > 1) {
-                    const minPerDose = (minDoseTotal / selectedDrug.dosesPerDay).toFixed(1);
-                    const maxPerDose = (maxDoseTotal / selectedDrug.dosesPerDay).toFixed(1);
-                    
-                    doseDisplay = `
-                        <div style="margin-bottom: 10px;">
-                            <strong>Dosis total diaria:</strong> ${minDoseTotal} - ${maxDoseTotal} ${unit}
-                        </div>
-                        <div>
-                            <strong>Por dosis (c/${selectedDrug.dosesPerDay === 3 ? '8h' : '12-24h'}):</strong> 
-                            ${minPerDose} - ${maxPerDose} ${unit}
-                        </div>
-                    `;
-                    
-                    calcDetails = `
-                        <strong>Cálculo dosis diaria:</strong><br>
-                        Mínimo: ${selectedDrug.minDose} ${unit}/kg/día × ${weight} kg = ${minDoseTotal} ${unit}/día<br>
-                        Máximo: ${selectedDrug.maxDose} ${unit}/kg/día × ${weight} kg = ${maxDoseTotal} ${unit}/día<br>
-                        <br>
-                        <strong>División por dosis:</strong><br>
-                        ${minDoseTotal} ${unit} ÷ ${selectedDrug.dosesPerDay} = ${minPerDose} ${unit}/dosis<br>
-                        ${maxDoseTotal} ${unit} ÷ ${selectedDrug.dosesPerDay} = ${maxPerDose} ${unit}/dosis
-                    `;
-                } else {
-                    doseDisplay = `${minDoseTotal} - ${maxDoseTotal} ${unit} al día`;
-                    
-                    calcDetails = `
-                        <strong>Cálculo:</strong><br>
-                        Mínimo: ${selectedDrug.minDose} ${unit}/kg/día × ${weight} kg = ${minDoseTotal} ${unit}<br>
-                        Máximo: ${selectedDrug.maxDose} ${unit}/kg/día × ${weight} kg = ${maxDoseTotal} ${unit}
-                    `;
-                }
-            } else {
-                // Medicamentos con dosis por toma
-                const minDoseTotal = (selectedDrug.minDose * weight).toFixed(1);
-                const maxDoseTotal = (selectedDrug.maxDose * weight).toFixed(1);
-                
-                doseDisplay = `${minDoseTotal} - ${maxDoseTotal} ${unit} por dosis`;
-                
-                calcDetails = `
-                    <strong>Cálculo:</strong><br>
-                    Mínimo: ${selectedDrug.minDose} ${unit}/kg × ${weight} kg = ${minDoseTotal} ${unit}<br>
-                    Máximo: ${selectedDrug.maxDose} ${unit}/kg × ${weight} kg = ${maxDoseTotal} ${unit}
-                `;
+            if (selectedDoseOption) {
+                minDose = selectedDoseOption.minDose;
+                maxDose = selectedDoseOption.maxDose;
             }
 
-            calculationResult.innerHTML = `
-                <h3>Cálculo para paciente de ${weight} kg</h3>
-                <div class="dose-range">
-                    ${doseDisplay}
-                </div>
-                <div class="calc-details">
-                    ${calcDetails}
-                    <br><br>
-                    <strong>Intervalo:</strong> ${selectedDrug.interval}<br>
-                    <strong>⚠️ Recordatorio:</strong> Siempre verificar dosis máxima diaria y ajustar según condición clínica
-                </div>
-            `;
+            const unit = selectedDrug.unit;
+            const minTotal = minDose * weight;
+            const maxTotal = maxDose * weight;
+
+            // Verificar restricciones de edad
+            let alerts = '';
+            if (age && selectedDrug.ageRestrictions) {
+                if (selectedDrug.ageRestrictions.minMonths && age < selectedDrug.ageRestrictions.minMonths) {
+                    alerts += `<div class="alert-box alert-danger">⛔ ${selectedDrug.ageRestrictions.warning}</div>`;
+                }
+                if (selectedDrug.ageRestrictions.timeRestriction) {
+                    alerts += `<div class="alert-box alert-warning">⏱️ ${selectedDrug.ageRestrictions.warning}</div>`;
+                }
+            }
+
+            // Verificar dosis máximas
+            if (selectedDrug.maxDailyValue) {
+                const maxAllowed = selectedDrug.maxDailyValue * weight;
+                if (maxTotal > maxAllowed) {
+                    alerts += `<div class="alert-box alert-warning">⚠️ Dosis calculada excede el máximo diario de ${selectedDrug.maxDaily}</div>`;
+                }
+            }
+
+            if (selectedDrug.maxSingleDose && maxTotal > selectedDrug.maxSingleDose) {
+                alerts += `<div class="alert-box alert-danger">⚠️ Dosis máxima por aplicación: ${selectedDrug.maxSingleDose} ${unit}</div>`;
+            }
+
+            // Construir resultado
+            let resultHTML = `<h3>📊 Resultados para ${weight} kg${age ? ` (${age} meses)` : ''}</h3>`;
             
+            resultHTML += alerts;
+
+            // Dosis calculada
+            if (minDose === maxDose) {
+                resultHTML += `<div class="dose-range">${minTotal.toFixed(1)} ${unit}</div>`;
+            } else {
+                resultHTML += `<div class="dose-range">${minTotal.toFixed(1)} - ${maxTotal.toFixed(1)} ${unit}</div>`;
+            }
+
+            // Detalles del cálculo
+            let calcDetails = '<div class="calc-details">';
+            if (selectedDrug.intervalHours) {
+                const dosesPerDay = 24 / selectedDrug.intervalHours;
+                const minPerDose = minTotal / dosesPerDay;
+                const maxPerDose = maxTotal / dosesPerDay;
+                
+                calcDetails += `<strong>Dosis diaria total:</strong> ${minTotal.toFixed(1)}${minDose !== maxDose ? '-'+maxTotal.toFixed(1) : ''} ${unit}/día<br>`;
+                calcDetails += `<strong>Por dosis (${selectedDrug.interval}):</strong> ${minPerDose.toFixed(1)}${minDose !== maxDose ? '-'+maxPerDose.toFixed(1) : ''} ${unit}<br>`;
+            } else {
+                calcDetails += `<strong>Dosis calculada:</strong> ${minTotal.toFixed(1)}${minDose !== maxDose ? '-'+maxTotal.toFixed(1) : ''} ${unit}<br>`;
+            }
+            calcDetails += `<strong>Cálculo:</strong> ${minDose}${minDose !== maxDose ? '-'+maxDose : ''} ${unit}/kg × ${weight} kg`;
+            calcDetails += '</div>';
+            resultHTML += calcDetails;
+
+            // Cálculo de presentación
+            if (selectedPresentation) {
+                resultHTML += calculatePresentation(minTotal, maxTotal, minDose === maxDose);
+            }
+
+            calculationResult.innerHTML = resultHTML;
             calculationResult.style.display = 'block';
         }
 
-        // Service Worker para funcionalidad offline
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./service-worker.js')
-                    .then(reg => console.log('Service Worker registrado:', reg))
-                    .catch(err => console.log('Error al registrar Service Worker:', err));
-            });
-        }
+        function calculatePresentation(minDose, maxDose, isSingleDose) {
+            const pres = selectedPresentation;
+            let html = '';
 
-        // Detector de conexión
-        function updateConnectionStatus() {
-            const indicator = document.getElementById('offlineIndicator');
-            if (navigator.onLine) {
-                indicator.classList.remove('offline');
-            } else {
-                indicator.classList.add('offline');
+            if (pres.type === 'liquid') {
+                const minMl = (minDose / pres.concentration) * pres.volume;
+                const maxMl = (maxDose / pres.concentration) * pres.volume;
+                
+                html += `<div class="presentation-calc">`;
+                html += `<h4>💧 Con ${pres.description}:</h4>`;
+                if (isSingleDose) {
+                    html += `<strong>Administrar:</strong> ${minMl.toFixed(1)} ml`;
+                } else {
+                    html += `<strong>Administrar:</strong> ${minMl.toFixed(1)} - ${maxMl.toFixed(1)} ml`;
+                }
+                
+                if (selectedDrug.intervalHours) {
+                    const dosesPerDay = 24 / selectedDrug.intervalHours;
+                    const minMlPerDose = minMl / dosesPerDay;
+                    const maxMlPerDose = maxMl / dosesPerDay;
+                    html += `<br><strong>Por dosis:</strong> ${minMlPerDose.toFixed(1)}${!isSingleDose ? '-'+maxMlPerDose.toFixed(1) : ''} ml cada ${selectedDrug.intervalHours}h`;
+                }
+                html += `</div>`;
             }
+
+            if (pres.type === 'iv' && !pres.volume) {
+                html += generateDilutionCalculator(minDose, maxDose, isSingleDose);
+            }
+
+            return html;
         }
 
-        window.addEventListener('online', updateConnectionStatus);
-        window.addEventListener('offline', updateConnectionStatus);
-        
-        // Inicializar la aplicación
-        window.addEventListener('DOMContentLoaded', async () => {
-            await loadMedications();
-            setupEventListeners();
-            updateConnectionStatus();
-        });
+        function generateDilutionCalculator(minDose, maxDose, isSingleDose) {
+            const pres = selectedPresentation;
+            
+            // Verificar si tiene opciones de dilución configuradas
+            if (!pres.dilutionOptions || pres.dilutionOptions.length === 0) {
+                return ''; // No mostrar calculadora si no hay opciones
+            }
+
+            let html = '<div class="dilution-section">';
+            html += '<h4>🧪 Calculadora de Dilución IV</h4>';
+            html += '<p style="margin-bottom: 10px;">Seleccione volumen de dilución:</p>';
+            html += '<div class="dilution-options">';
+            
+            // Generar botones dinámicamente desde el JSON
+            pres.dilutionOptions.forEach(vol => {
+                html += `<button class="dilution-btn ${selectedDilution === vol ? 'active' : ''}" onclick="setDilution(${vol})">${vol} ml</button>`;
+            });
+            
+            html += '</div>';
+
+            // Si no hay dilución seleccionada, usar la primera opción por defecto
+            if (!selectedDilution || !pres.dilutionOptions.includes(selectedDilution)) {
+                selectedDilution = pres.dilutionOptions[0];
+            }
+
+            const concentration = pres.concentration / selectedDilution;
+            const minMl = minDose / concentration;
+            const maxMl = maxDose / concentration;
+
+            html += `<div style="margin-top: 12px; padding: 10px; background: white; border-radius: 6px;">`;
+            html += `<strong>Concentración final:</strong> ${concentration.toFixed(1)} ${pres.concentrationUnit}/ml<br>`;
+            html += `<strong>Volumen a administrar:</strong> ${minMl.toFixed(1)}${!isSingleDose ? '-'+maxMl.toFixed(1) : ''} ml`;
+            html += `</div>`;
+            html += '</div>';
+
+            return html;
+        }
+
+        function setDilution(ml) {
+            selectedDilution = ml;
+            calculateDose();
+        }
+
+        // Inicializar
+        window.addEventListener('DOMContentLoaded', loadMedications);
     </script>
 </body>
 </html>
