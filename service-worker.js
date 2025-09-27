@@ -1,5 +1,5 @@
 // Cambia esta versión en cada despliegue
-const CACHE_VERSION = 'v2.0.2';
+const CACHE_VERSION = 'v3.0.0';
 const CACHE_NAME = `dosis-pediatricas-${CACHE_VERSION}`;
 
 // Archivos estáticos que cambian poco
